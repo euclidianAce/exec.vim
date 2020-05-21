@@ -14,8 +14,8 @@ endfunction
 function! Exec#Exec()
 	" Runs the code and redirects it's output to a buffer
 	let out = system("./" . bufname("%") . " 2>&1")
-	call OutBuffer()
+	call s:OutBuffer()
 	call append(0, split(out, '\v\n'))
 endfunction
 
-nnoremap <leader>run :call Exec#Exec()
+nnoremap <silent> <leader>run :call Exec#Exec()<CR>
